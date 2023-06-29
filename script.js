@@ -17,6 +17,19 @@ function handleGamepadInput() {
   circle.x += xAxis * 5;
   circle.y += yAxis * 5;
 
+  // Prevent the circle from going beyond the canvas boundaries
+  if (circle.x - circle.radius < 0) {
+    circle.x = circle.radius;
+  } else if (circle.x + circle.radius > canvas.width) {
+    circle.x = canvas.width - circle.radius;
+  }
+
+  if (circle.y - circle.radius < 0) {
+    circle.y = circle.radius;
+  } else if (circle.y + circle.radius > canvas.height) {
+    circle.y = canvas.height - circle.radius;
+  }
+
   // Example: Change the circle color based on button presses
   if (aButton) {
     circle.color = "red";
@@ -37,7 +50,6 @@ function handleGamepadInput() {
   )}, y: ${circle.y.toFixed(2)}`;
 }
 
-
 // Create the circle object
 const circle = {
   x: 350,
@@ -46,16 +58,33 @@ const circle = {
   color: "black",
 };
 
+// Update the canvas size to match the screen width
+function updateCanvasSize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight - 30;
+}
+
 // Get the canvas element
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
 // Update and draw the game
 function update() {
+  // Update the canvas size on each frame
+  updateCanvasSize();
+
   // Clear the canvas
   context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw the circle
+  // Draw the background border of the circle
+  context.beginPath();
+  context.arc(circle.x, circle.y, circle.radius + 2, 0, 2 * Math.PI);
+  context.strokeStyle = "black";
+  context.lineWidth = 4;
+  context.stroke();
+  context.closePath();
+
+  // Draw the filled circle
   context.beginPath();
   context.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
   context.fillStyle = circle.color;
