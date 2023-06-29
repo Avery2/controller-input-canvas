@@ -32,7 +32,9 @@ function handleGamepadInput() {
   const debugElement = document.getElementById("debug");
   debugElement.innerHTML = `X-Axis: ${xAxis.toFixed(
     2
-  )}, Y-Axis: ${yAxis.toFixed(2)}`;
+  )}, Y-Axis: ${yAxis.toFixed(2)}, x: ${circle.x.toFixed(
+    2
+  )}, y: ${circle.y.toFixed(2)}`;
 }
 
 
