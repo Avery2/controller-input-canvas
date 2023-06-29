@@ -12,7 +12,14 @@ canvas {
   background-color: antiquewhite;
 }
 
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #debug {
   font-family: Arial, sans-serif;
   font-size: 14px;
+  color: white;
 }
