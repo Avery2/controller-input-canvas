@@ -1,5 +1,10 @@
 // Function to get controller input
-function handleGamepadInput(gamepad) {
+function handleGamepadInput() {
+  const gamepads = navigator.getGamepads(); // Retrieve all connected gamepads
+  const gamepad = gamepads[0]; // Assuming there's only one gamepad connected
+
+  if (!gamepad) return; // Exit if no gamepad is connected
+
   const xAxis = gamepad.axes[0]; // Left stick X-axis
   const yAxis = gamepad.axes[1]; // Left stick Y-axis
   const aButton = gamepad.buttons[0].pressed; // A button
@@ -64,10 +69,7 @@ requestAnimationFrame(update);
 
 // Event listeners for controller input and keyboard input
 window.addEventListener("gamepadconnected", function (event) {
-  const gamepad = event.gamepad;
-  setInterval(function () {
-    handleGamepadInput(gamepad);
-  }, 16.67); // Update every 60 frames per second (1000ms / 60 frames ≈ 16.67ms)
+  setInterval(handleGamepadInput, 16.67); // Update every 60 frames per second (1000ms / 60 frames ≈ 16.67ms)
 });
 
 window.addEventListener("keydown", handleKeyboardInput);
