@@ -38,8 +38,8 @@ function handleGamepadInput() {
 
 // Create the circle object
 const circle = {
-  x: 200,
-  y: 200,
+  x: 350,
+  y: 350,
   radius: 20,
   color: "black",
 };
