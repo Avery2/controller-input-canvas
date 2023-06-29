@@ -6,8 +6,6 @@ This skeleton app provides a starting point for building your own 2D game using 
 
 This skeleton app serves as a foundation for developing games that utilize game controller inputs. It demonstrates the integration of gamepad functionality into a web-based application and provides a starting point for implementing your own game mechanics and features.
 
-I made this with ChatGPT (even this README). You can play the game if you have a controller [here]().
-
 ## Features
 
 - Gamepad Input: The app captures various inputs from game controllers, such as joystick movements, button presses, bumper clicks, and trigger interactions.
