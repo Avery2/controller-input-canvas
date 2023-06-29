@@ -1,30 +1,47 @@
-# Game Controller Input Experiment
+# Game Controller Input Skeleton App
 
-This experiment showcases the usage of game controller input in a JavaScript application. The project aims to demonstrate how to integrate gamepad functionality into a web-based game or interactive application.
-
-I made this with ChatGPT (even this README lol). You can play the game if you have a controller [here]().
+This skeleton app provides a starting point for building your own 2D game using controller inputs. It offers a simple HTML and JavaScript tech stack, allowing you to leverage gamepad functionality to create an interactive game experience.
 
 ## Introduction
 
-This project serves as a proof of concept for utilizing game controllers, specifically Xbox controllers, as the primary input method. The application leverages the Gamepad API to detect and process gamepad input events, enabling the control of various game elements through the controller.
+This skeleton app serves as a foundation for developing games that utilize game controller inputs. It demonstrates the integration of gamepad functionality into a web-based application and provides a starting point for implementing your own game mechanics and features.
+
+I made this with ChatGPT (even this README). You can play the game if you have a controller [here]().
 
 ## Features
 
-- Joystick input: The application captures the left stick X and Y axes, allowing for precise control of the game character's movement.
-- Button input: The A, B, X, and Y buttons on the controller are mapped to specific actions within the game. Pressing these buttons triggers corresponding events, such as changing the color of an object or performing an action.
-- Bumper input: The left and right bumpers on the controller can be used to trigger additional actions or interact with the game environment.
-- Trigger input: The left and right triggers provide analog input, enabling smooth and variable interactions, such as controlling the intensity of an action or adjusting in-game parameters.
+- Gamepad Input: The app captures various inputs from game controllers, such as joystick movements, button presses, bumper clicks, and trigger interactions.
+- Canvas Rendering: The app provides a basic rendering system using HTML5 canvas, allowing you to draw and animate game elements.
+- Controller Mapping: The app includes a mapping of button indices to their corresponding actions, providing a starting point for handling different gamepad inputs.
+- Game Loop: The app utilizes a game loop mechanism to update and render the game state at a consistent frame rate.
 
-## Usage
+## Getting Started
 
-1. Connect an Xbox controller or compatible gamepad to your computer.
-2. Open the project in a web browser that supports the Gamepad API.
-3. The application will automatically detect the connected gamepad and start capturing its input.
-4. Use the left joystick to move the character or control an in-game element.
-5. Experiment with pressing buttons, bumpers, and triggers to observe the corresponding changes in the game.
-6. Explore how the input from the gamepad can be utilized to control various aspects of the game or interactive application.
+To use this skeleton app as a starting point for your own game development:
+
+1. Clone or download the repository to your local machine.
+2. Open the `index.html` file in a web browser that supports the Gamepad API.
+3. Connect a compatible gamepad, preferably an Xbox controller, to your computer.
+4. The app will automatically detect the connected gamepad and start capturing its input.
+5. Use the provided code structure and functions as a foundation for your game development.
+6. Customize and expand the app to create your own game mechanics, levels, and interactions using game controller inputs.
+
+## Usage and Customization
+
+1. Update the `handleGamepadInput` function in `script.js` to handle specific gamepad inputs and implement your desired game logic.
+2. Modify the rendering code in the `update` function to draw your game elements, animations, and user interface on the canvas.
+3. Extend the functionality by adding new functions, objects, and components to suit your game requirements.
+4. Customize the HTML and CSS files to create your game's visual style and layout.
+
+## How to Play
+
+I made this with ChatGPT (even this README). You can play the game if you have a controller by visiting the hosted [GitHub Pages](https://your-github-pages-url).
 
 ## Limitations
 
-- This experiment focuses solely on game controller input and does not provide support for other input methods like keyboard or mouse.
-- Currently, the application is designed to work specifically with Xbox controllers or compatible gamepads that follow similar button and axis mappings.
+- This skeleton app focuses exclusively on game controller input and does not provide support for other input methods like keyboard or mouse.
+- Compatibility with different gamepad models and browsers may vary. The app has been tested with Xbox controllers and is optimized for modern web browsers.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
