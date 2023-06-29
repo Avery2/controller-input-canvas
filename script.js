@@ -9,8 +9,8 @@ function handleGamepadInput(gamepad) {
 
   // Handle controller inputs here
   // Example: Move the circle on the canvas based on the joystick input
-  circle.x += xAxis * 5;
-  circle.y += yAxis * 5;
+  circle.x += xAxis * 2;
+  circle.y += yAxis * 2;
 
   // Example: Change the circle color based on button presses
   if (aButton) {
@@ -24,37 +24,6 @@ function handleGamepadInput(gamepad) {
   }
 }
 
-// Function to get keyboard input
-function handleKeyboardInput(event) {
-  const key = event.key;
-  const arrowKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
-  const wasdKeys = ["w", "a", "s", "d"];
-
-  // Handle keyboard inputs here
-  // Example: Move the circle on the canvas based on the arrow key or WASD input
-  if (arrowKeys.includes(key) || wasdKeys.includes(key)) {
-    event.preventDefault(); // Prevent scrolling the page with arrow keys or WASD
-
-    switch (key) {
-      case "ArrowUp":
-      case "w":
-        circle.y -= 5;
-        break;
-      case "ArrowDown":
-      case "s":
-        circle.y += 5;
-        break;
-      case "ArrowLeft":
-      case "a":
-        circle.x -= 5;
-        break;
-      case "ArrowRight":
-      case "d":
-        circle.x += 5;
-        break;
-    }
-  }
-}
 
 // Create the circle object
 const circle = {
