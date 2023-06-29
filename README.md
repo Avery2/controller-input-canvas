@@ -39,7 +39,7 @@ To use this skeleton app as a starting point for your game development:
 
 ## How to Play
 
-I made this with ChatGPT (even this README). You can play the game if you have a controller by visiting the hosted [GitHub Pages]([https://your-github-pages-url](https://www.averychan.site/controller-input-canvas/)).
+I made this with ChatGPT (even this README). You can play the game if you have a controller by visiting the hosted [GitHub Pages](https://www.averychan.site/controller-input-canvas/).
 
 ## Limitations
 
