@@ -1,3 +1,27 @@
+// Initialize button history array
+const buttonHistory = [];
+// Create the circle object
+const circle = {
+  x: 350,
+  y: 350,
+  radius: 20,
+  color: "black",
+};
+
+// Function to handle button presses
+function handleButtonPressHistory(buttons) {
+  const pressedButtons = buttons
+    .filter((button) => button.pressed)
+    .map((button) => {
+      return {
+        name: `Button ${buttons.indexOf(button)}`,
+        timestamp: Date.now(),
+      };
+    });
+
+  buttonHistory.push(...pressedButtons);
+}
+
 // Function to get controller input
 function handleGamepadInput(gamepad) {
   if (!gamepad) return; // Exit if no gamepad is connected
@@ -12,6 +36,23 @@ function handleGamepadInput(gamepad) {
   const rightBumper = gamepad.buttons[5].pressed; // Right bumper
   const leftTrigger = gamepad.buttons[6].value; // Left trigger
   const rightTrigger = gamepad.buttons[7].value; // Right trigger
+
+  // Function to update debug information
+  function updateDebugInfo() {
+    const debugElement = document.getElementById("debug");
+    const lastSecondButtons = buttonHistory
+      .filter((button) => button.timestamp >= Date.now() - 100)
+      .map((button) => button.name)
+      .join(", ");
+    const debugInfo = `X-Axis: ${xAxis.toFixed(2)}, Y-Axis: ${yAxis.toFixed(
+      2
+    )}, x: ${circle.x.toFixed(2)}, y: ${circle.y.toFixed(
+      2
+    )}, Buttons Pressed: ${lastSecondButtons}`;
+    debugElement.innerHTML = debugInfo;
+  }
+  // Update debug information
+  updateDebugInfo();
 
   // Handle controller inputs here
   // Example: Move the circle on the canvas based on the joystick input
@@ -41,23 +82,7 @@ function handleGamepadInput(gamepad) {
   } else if (yButton) {
     circle.color = "yellow";
   }
-
-  // Update debug information
-  const debugElement = document.getElementById("debug");
-  debugElement.innerHTML = `X-Axis: ${xAxis.toFixed(
-    2
-  )}, Y-Axis: ${yAxis.toFixed(2)}, x: ${circle.x.toFixed(
-    2
-  )}, y: ${circle.y.toFixed(2)}`;
 }
-
-// Create the circle object
-const circle = {
-  x: 350,
-  y: 350,
-  radius: 20,
-  color: "black",
-};
 
 // Update the canvas size to match the screen width
 function updateCanvasSize() {
@@ -71,7 +96,6 @@ const context = canvas.getContext("2d");
 
 // Update and draw the game
 function update() {
-  // Update the canvas size on each frame
   updateCanvasSize();
 
   // Clear the canvas
@@ -106,9 +130,9 @@ window.addEventListener("gamepadconnected", function (event) {
     for (const gamepad of gamepads) {
       if (gamepad) {
         handleGamepadInput(gamepad);
+        // Check button presses
+        handleButtonPressHistory(gamepad.buttons);
       }
     }
   }, 16.67); // Update every 60 frames per second (1000ms / 60 frames ≈ 16.67ms)
 });
-
-window.addEventListener("keydown", handleKeyboardInput);
