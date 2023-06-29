@@ -6,6 +6,12 @@ This skeleton app provides a starting point for building your 2D game using cont
 
 This skeleton app is a foundation for developing games that utilize game controller inputs. It demonstrates the integration of gamepad functionality into a web-based application and provides a starting point for implementing your game mechanics and features.
 
+
+
+https://github.com/Avery2/controller-input-canvas/assets/53503018/2a532fb3-7d5f-4c35-a6d8-298a84a29035
+
+
+
 ## Features
 
 - Gamepad Input: The app captures various inputs from game controllers, such as joystick movements, button presses, bumper clicks, and trigger interactions.
