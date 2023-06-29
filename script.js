@@ -14,8 +14,8 @@ function handleGamepadInput() {
 
   // Handle controller inputs here
   // Example: Move the circle on the canvas based on the joystick input
-  circle.x += xAxis * 2;
-  circle.y += yAxis * 2;
+  circle.x += xAxis * 5;
+  circle.y += yAxis * 5;
 
   // Example: Change the circle color based on button presses
   if (aButton) {
