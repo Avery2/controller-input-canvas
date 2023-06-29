@@ -40,16 +40,16 @@ function handleGamepadInput(gamepad) {
   // Function to update debug information
   function updateDebugInfo() {
     const debugElement = document.getElementById("debug");
-    const lastSecondButtons = buttonHistory
-      .filter((button) => button.timestamp >= Date.now() - 100)
-      .map((button) => button.name)
-      .join(", ");
+    const lastButtonPressed = buttonHistory.at(-1)?.name;
     const debugInfo = `X-Axis: ${xAxis.toFixed(2)}, Y-Axis: ${yAxis.toFixed(
       2
     )}, x: ${circle.x.toFixed(2)}, y: ${circle.y.toFixed(
       2
-    )}, Buttons Pressed: ${lastSecondButtons}`;
+    )}, Last Button Pressed: ${lastButtonPressed}`;
     debugElement.innerHTML = debugInfo;
+
+    // Limit the length of buttonHistory to 10
+    buttonHistory.splice(0, buttonHistory.length - 10);
   }
   // Update debug information
   updateDebugInfo();
