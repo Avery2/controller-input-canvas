@@ -8,13 +8,25 @@ const circle = {
   color: "black",
 };
 
+// Define button mapping
+const buttonMapping = {
+    0: "A Button",
+    1: "B Button",
+    2: "X Button",
+    3: "Y Button",
+    4: "Left Bumper",
+    5: "Right Bumper",
+    6: "Left Trigger",
+    7: "Right Trigger"
+  };
+
 // Function to handle button presses
 function handleButtonPressHistory(buttons) {
   const pressedButtons = buttons
     .filter((button) => button.pressed)
     .map((button) => {
       return {
-        name: `Button ${buttons.indexOf(button)}`,
+        name: buttonMapping[buttons.indexOf(button)],
         timestamp: Date.now(),
       };
     });
