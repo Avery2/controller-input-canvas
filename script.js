@@ -85,15 +85,35 @@ function handleGamepadInput(gamepad) {
   }
 
   // Example: Change the circle color based on button presses
-  if (aButton) {
+  switch (true) {
+  case aButton:
     circle.color = "red";
-  } else if (bButton) {
+    break;
+  case bButton:
     circle.color = "blue";
-  } else if (xButton) {
+    break;
+  case xButton:
     circle.color = "green";
-  } else if (yButton) {
+    break;
+  case yButton:
     circle.color = "yellow";
-  }
+    break;
+  case leftBumper:
+    circle.color = "purple";
+    break;
+  case rightBumper:
+    circle.color = "orange";
+    break;
+  case leftTrigger > 0:
+    circle.color = "cyan";
+    break;
+  case rightTrigger > 0:
+    circle.color = "magenta";
+    break;
+  default:
+    circle.color = "black";
+    break;
+}
 }
 
 // Update the canvas size to match the screen width
