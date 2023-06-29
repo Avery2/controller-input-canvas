@@ -22,6 +22,12 @@ function handleGamepadInput(gamepad) {
   } else if (yButton) {
     circle.color = "yellow";
   }
+
+  // Update debug information
+  const debugElement = document.getElementById("debug");
+  debugElement.innerHTML = `X-Axis: ${xAxis.toFixed(
+    2
+  )}, Y-Axis: ${yAxis.toFixed(2)}`;
 }
 
 
