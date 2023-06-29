@@ -1,8 +1,5 @@
 // Function to get controller input
-function handleGamepadInput() {
-  const gamepads = navigator.getGamepads(); // Retrieve all connected gamepads
-  const gamepad = gamepads[0]; // Assuming there's only one gamepad connected
-
+function handleGamepadInput(gamepad) {
   if (!gamepad) return; // Exit if no gamepad is connected
 
   const xAxis = gamepad.axes[0]; // Left stick X-axis
@@ -11,6 +8,10 @@ function handleGamepadInput() {
   const bButton = gamepad.buttons[1].pressed; // B button
   const xButton = gamepad.buttons[2].pressed; // X button
   const yButton = gamepad.buttons[3].pressed; // Y button
+  const leftBumper = gamepad.buttons[4].pressed; // Left bumper
+  const rightBumper = gamepad.buttons[5].pressed; // Right bumper
+  const leftTrigger = gamepad.buttons[6].value; // Left trigger
+  const rightTrigger = gamepad.buttons[7].value; // Right trigger
 
   // Handle controller inputs here
   // Example: Move the circle on the canvas based on the joystick input
@@ -100,7 +101,14 @@ requestAnimationFrame(update);
 
 // Event listeners for controller input and keyboard input
 window.addEventListener("gamepadconnected", function (event) {
-  setInterval(handleGamepadInput, 16.67); // Update every 60 frames per second (1000ms / 60 frames ≈ 16.67ms)
+  setInterval(function () {
+    const gamepads = navigator.getGamepads(); // Retrieve all connected gamepads
+    for (const gamepad of gamepads) {
+      if (gamepad) {
+        handleGamepadInput(gamepad);
+      }
+    }
+  }, 16.67); // Update every 60 frames per second (1000ms / 60 frames ≈ 16.67ms)
 });
 
 window.addEventListener("keydown", handleKeyboardInput);
